@@ -1,7 +1,7 @@
 # setup.py
 
 from setuptools import setup, find_packages
-
+# TODO: Redo setup.py to contain my information
 # setuptools is a Python library used to facilitate packaging and distribution of Python packages.
 # It provides necessary functions to specify what files and dependencies are needed.
 

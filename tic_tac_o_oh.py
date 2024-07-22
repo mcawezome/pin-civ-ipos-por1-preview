@@ -9,6 +9,7 @@ board = [empty] * 9
 # Game loop
 while True:
     # Print board
+    # TODO: This Print board is a good candidate for print_board() module in Board class
     print(board[0], "|", board[1], "|", board[2])
     print("---------")
     print(board[3], "|", board[4], "|", board[5])
@@ -17,18 +18,25 @@ while True:
     print()
 
     # Check for win
+    # TODO: Implement is_winner() to check if game is won in Board class
     win_conditions = [(0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6)]
+    # This part is checking to see if the board at positions e.g. (0,1,2) correspond to matching symbols (win)
     for wc in win_conditions:
         if board[wc[0]] == board[wc[1]] == board[wc[2]] != empty:
             print("Player", board[wc[0]], "wins!")
             exit(0)
 
     # Check for tie
+    # This part checks for a full board and, given it is not a win state, determines if a board is tied.
+    # TODO: Implement is_tied() to check if game is tied. In Board class
     if empty not in board:
         print("It's a tie!")
         exit(0)
 
     # Get next move
+    # TODO: This can be implemented as get_next_move() function in player class
+    # This part receives input from user and validates it is digit and also a valid move.
+    # It continues to prompt until a valid move is given.
     while True:
         player = p1 if board.count(empty) % 2 == 1 else p2
         move = input("Next move for player " + player + " (0-8): ")
