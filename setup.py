@@ -1,7 +1,7 @@
-# setup.py
+# __init__.py
 
 from setuptools import setup, find_packages
-# TODO: Redo setup.py to contain my information
+# TODO: Redo __init__.py to contain my information
 # setuptools is a Python library used to facilitate packaging and distribution of Python packages.
 # It provides necessary functions to specify what files and dependencies are needed.
 
@@ -27,7 +27,7 @@ setup(
     url="http://github.com/your_username/tic-tac-toe",  # project home page
 )
 
-# With this setup.py in place, you can install your project in another environment with pip:
+# With this __init__.py in place, you can install your project in another environment with pip:
 # pip install .
-# The '.' means that setup.py is in the current directory
+# The '.' means that __init__.py is in the current directory
 

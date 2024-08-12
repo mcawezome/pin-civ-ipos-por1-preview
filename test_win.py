@@ -1,20 +1,26 @@
-win_conditions = [(0,1,2), (3,4,5), (6,7,8), (0,3,6), (1,4,7), (2,5,8), (0,4,8), (2,4,6)]
+# This is not suitable for board on n dimensions. Redone
+# Use unit test not pytest
+import unittest
+
 empty = " "
 grid_size = 3
 board = [[empty]*grid_size]*grid_size
-
-for wc in win_conditions:
+def is_game_won():
+    n = len(board)
     is_won = False
-    win_con_list = []
-    for wc2 in wc:
-        row = int(wc2 / grid_size)
-        column = wc2 % (grid_size)
-        digit = board[row][column]
-        win_con_list.append(digit)
+    for i in range(n):
+        #check horizontal wins
+        if all(board[i][j] == board[i][0] != empty for j in range(n)):
+            is_won = True
+        # check vertical wins
+        elif all(board[i][j] == board[0][j] != empty for j in range(n)):
+            is_won = True
+        # check L->R diagonal wins
+        elif all(board[i][i] == board[0][0] != empty for i in range(n)):
+            is_won = True
+        # check R -> L diagonal wins
+        elif all(board[n-1-i] == board[0][n-1] != empty for i in range(n)):
+            is_won = True
+    return is_won
 
-    set_win_con_list = set(win_con_list)
-    win_token = win_con_list[0]
-    if len(set_win_con_list) <= 1:
-        is_won = True
-        print("Player", win_token, "wins!")
-        exit(0)
+

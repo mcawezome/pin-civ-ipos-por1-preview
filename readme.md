@@ -41,7 +41,7 @@ tic_tac_toe/
 |--- tests/
 |    |--- __init__.py
 |    |--- test_tic_tac_toe.py
-|--- setup.py
+|--- __init__.py
 ```
 
 **Note**: 
