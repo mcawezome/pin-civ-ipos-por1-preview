@@ -13,4 +13,7 @@ class Board:
             print()
             print("---------")
 
+    def place_move(self,row,col, token):
+        self.matrix[row][col] = token
+
 #    def generate_win_cons(self):

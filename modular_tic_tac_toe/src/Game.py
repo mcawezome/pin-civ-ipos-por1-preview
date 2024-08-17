@@ -12,14 +12,15 @@ class Game:
             int: The location of move to be made if valid input
         """
         # Validate move placed in this function for the simplicity of program
+        token = self.get_player_token()
         while True:
-            move = input("Next move for player " + self.get_player_token() + " (0-8): ")
+            move = input("Next move for player " + token + " (0-8): ")
             if move.isdigit() and 0 <= int(move) <= 8:
                 move_int = int(move)
                 move_row = int(move_int / self.board.grid_size)
                 move_column = move_int % self.board.grid_size
                 if self.board.matrix[move_row][move_column] == self.empty:
-                    self.board.matrix[move_row][move_column] = self.get_player_token()
+                    self.board.place_move(move_row,move_column, token)
                     break
 
 
