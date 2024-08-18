@@ -5,6 +5,9 @@ class Board:
         self.matrix = self.matrix = [[' ' for _ in range(self.grid_size)] for _ in range(self.grid_size)]
 
     def print_board(self):
+        """
+        prints a command line representation of the game board.
+        """
         for row in self.matrix:
             for n_column, column in enumerate(self.matrix):
                 print(row[n_column], end="")
@@ -14,6 +17,12 @@ class Board:
             print("---------")
 
     def place_move(self,row,col, token):
+        """
+        places a move at a given row, column for a specified token.
+        :param row: row coordinate for the token to change
+        :param col: column coordinate for the token to change
+        :param token: 'O' or 'X', token to change
+        """
         self.matrix[row][col] = token
 
 #    def generate_win_cons(self):

@@ -40,6 +40,10 @@ class Game:
             return p2
 
     def is_game_won(self):
+        """
+        Determines if the game is won for a given board state.
+        :return: bool is_won
+        """
         n = len(self.board.matrix)
         board = self.board.matrix
         empty = self.board.empty
