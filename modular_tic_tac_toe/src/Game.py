@@ -5,6 +5,7 @@ class Game:
         self.board = b.Board(grid_size)
         # self.board = [[self.empty] * grid_size] * grid_size
 
+
     def place_move(self):
         """
         Let the user choose which location to place token and validates input
@@ -18,7 +19,7 @@ class Game:
             if move.isdigit() and 0 <= int(move) <= 8:
                 move_int = int(move)
                 move_row = int(move_int / self.board.grid_size)
-                move_column = move_int % self.board.grid_size
+                move_column = int(move_int % self.board.grid_size)
                 if self.board.matrix[move_row][move_column] == self.empty:
                     self.board.place_move(move_row,move_column, token)
                     break

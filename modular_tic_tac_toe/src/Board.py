@@ -2,7 +2,7 @@ class Board:
     def __init__(self, grid_size):
         self.empty = " "
         self.grid_size = grid_size
-        self.matrix = [[self.empty] * grid_size] * grid_size
+        self.matrix = self.matrix = [[' ' for _ in range(self.grid_size)] for _ in range(self.grid_size)]
 
     def print_board(self):
         for row in self.matrix:
