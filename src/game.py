@@ -1,4 +1,4 @@
-import Board as b
+import board as b
 class Game:
     def __init__(self, grid_size):
         self.empty = " "
@@ -72,7 +72,7 @@ class Game:
         for row in self.board.matrix:
             if self.board.empty in row:
                 return False
-        return False
+        return True
 
     def play(self):
         """
