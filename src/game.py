@@ -1,9 +1,12 @@
 import board as b
 class Game:
     def __init__(self, grid_size):
+        """
+        Create an empty instance of Game class
+        :param grid_size: The size (n) of the n by n grid to play tic-tac-toe
+        """
         self.empty = " "
         self.board = b.Board(grid_size)
-        # self.board = [[self.empty] * grid_size] * grid_size
 
 
     def place_move(self):
@@ -14,15 +17,18 @@ class Game:
         """
         # Validate move placed in this function for the simplicity of program
         token = self.get_player_token()
+        maximum_possible_move = self.board.grid_size**2 - 1
         while True:
-            move = input("Next move for player " + token + " (0-8): ")
-            if move.isdigit() and 0 <= int(move) <= 8:
+            move = input("Next move for player " + token + f" (0-{maximum_possible_move}): ")
+            if move.isdigit() and 0 <= int(move) <= maximum_possible_move:
                 move_int = int(move)
-                move_row = int(move_int / self.board.grid_size)
+                move_row = int(move_int // self.board.grid_size)
                 move_column = int(move_int % self.board.grid_size)
                 if self.board.matrix[move_row][move_column] == self.empty:
                     self.board.place_move(move_row,move_column, token)
                     break
+            else:
+                print(f"Please enter a number between 0 and {maximum_possible_move}")
 
 
 
@@ -44,7 +50,7 @@ class Game:
         Determines if the game is won for a given board state.
         :return: bool is_won
         """
-        n = len(self.board.matrix)
+        n = self.board.grid_size
         board = self.board.matrix
         empty = self.board.empty
         is_won = False
@@ -79,10 +85,9 @@ class Game:
         Play the game from start to end
         :return:
         """
-        # token = self.get_player_token()
-        # while not tied or won
         game_over = False
         winner = "No one"
+        # while not tied or won
         while game_over == False:
             self.place_move()
             self.board.print_board()
