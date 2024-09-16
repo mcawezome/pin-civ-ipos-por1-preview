@@ -88,12 +88,13 @@ class Game:
         game_over = False
         winner = "No one"
         # while not tied or won
-        while game_over == False:
+        while not game_over:
             self.place_move()
             self.board.print_board()
-            if self.is_game_won():
+            if self.is_game_tie():
+                game_over = True
+            elif self.is_game_won():
                 game_over = True
                 winner = self.get_player_token()
-            elif self.is_game_tie():
-                game_over = True
+
         print(winner, " won the game!")
